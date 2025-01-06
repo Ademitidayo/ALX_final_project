@@ -3,16 +3,30 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const gradeRoutes = require('./routes/gradeRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const teacherRoutes = require('./routes/teacherRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const subjectRoutes = require('./routes/subjectRoutes');
 require('dotenv').config();
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api', gradeRoutes);
+app.use('/api/grade', gradeRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/teachers', teacherRoutes);
+app.use('/api/students', studentRoutes);
+app.use('/api/subjects', subjectRoutes);
 
-app.get('/', (req, res) => res.send('Welcome to the School Grading Platform'));
+app.get('/api/data', (req, res) => {
+  res.json({ message: 'Hello from the backend!' });
+});
+
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  res.json({ success: true });
+});
 
 mongoose.set('strictQuery', true);
 const uri = process.env.MONGO_URI;
