@@ -1,35 +1,33 @@
-/* App.css */
-
-.App {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.button {
-  padding: 10px 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #45a049;
-}
-
-h2 {
-  color: #333;
-}
-
-h3 {
-  margin-top: 20px;
-}
-
-ul {
+.nav-left {
   list-style-type: none;
-  padding-left: 0;
+  display: flex;
+  gap: 20px;
 }
 
-li {
-  margin: 5px 0;
+.nav-left li {
+  display: inline-block;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  background-color: #1f2937;
+  border-radius: 5px;
+}
+
+.nav-button:hover {
+  background-color: #4ade80;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .nav-left, .nav-right {
+    flex-direction: column;
+  }
 }

@@ -1,5 +1,5 @@
 const Grade = require('../models/gradeModel');
-const Subject = require('../models/subjectModel');
+const Subject = require('../models/Subject');
 
 const addOrUpdateGrade = async (req, res) => {
   try {
